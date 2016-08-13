@@ -3,10 +3,6 @@
 }
 
 .content{
-  display: inline;
+  display: inline-flex;
 }
 
-.item{
-  margin-left:10px;
-  margin-right:10px;
-}
