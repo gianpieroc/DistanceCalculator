@@ -1,0 +1,8 @@
+{
+  "generator-react-webpack": {
+    "appName": "test4Mozio",
+    "style": "css",
+    "postcss": false,
+    "generatedWithVersion": 3
+  }
+}
