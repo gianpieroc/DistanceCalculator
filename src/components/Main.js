@@ -28,7 +28,6 @@ class AppComponent extends React.Component {
   }
 
   onChanges(address) {
-    console.log(address);
     this.setState({
       currentAdd:address,
       currentProc:'Obtaining coords'
@@ -42,7 +41,6 @@ class AppComponent extends React.Component {
         longitude:this.state.long2
       }) / 1000;
 
-      console.log(lat,lng);
       this.setState({
         address: address,
         lat: lat,
@@ -55,13 +53,12 @@ class AppComponent extends React.Component {
 
   onChangesT(address) {
 
-    this.setState({ 
-      currentAdd2: address, 
+    this.setState({
+      currentAdd2: address,
       currentProc: 'Obtaining coords'
     })
 
     geocodeByAddress(address,  (err, { lat, lng  }) => {
-      console.log(lat,lng);
       var distan = geoLib.getDistance({
         latitude:this.state.lat,
         longitude:this.state.long
