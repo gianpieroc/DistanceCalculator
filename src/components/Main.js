@@ -29,23 +29,47 @@ class AppComponent extends React.Component {
 
   onChanges(address) {
     console.log(address);
-    this.setState({currentAdd:address, currentProc:'Obtaining coords'})
+    this.setState({
+      currentAdd:address,
+      currentProc:'Obtaining coords'
+    })
     geocodeByAddress(address,  (err, { lat, lng  }) => {
+      var distan = geoLib.getDistance({
+        latitude:lat,
+        longitude:lng
+      },{
+        latitude:this.state.lat2,
+        longitude:this.state.long2
+      }) / 1000;
+
       console.log(lat,lng);
       this.setState({
         address: address,
         lat: lat,
         long: lng,
+        dist: distan,
         currentProc: 'Done'
       })
     })
   }
 
   onChangesT(address) {
-    this.setState({ currentAdd2: address, currentProc: 'Obtaining coords' })
+
+    this.setState({ 
+      currentAdd2: address, 
+      currentProc: 'Obtaining coords'
+    })
+
     geocodeByAddress(address,  (err, { lat, lng  }) => {
       console.log(lat,lng);
-      var distan = geoLib.getDistance({latitude:this.state.lat, longitude:this.state.long},{latitude:this.state.lat2, longitude:this.state.long2}) / 1000;
+      var distan = geoLib.getDistance({
+        latitude:this.state.lat,
+        longitude:this.state.long
+      },{
+        latitude:lat,
+        longitude:lng
+      }) / 1000;
+
       this.setState({
         address2: address,
         lat2: lat,
