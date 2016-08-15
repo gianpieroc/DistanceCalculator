@@ -5,9 +5,6 @@ import React, {
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Main from '../components/Main'
-import FromComponent from '../components/FromComponent'
-import ResultComponent from '../components/ResultComponent.js'
-import ToComponent from '../components/ToComponent'
 
 class Index extends Component {
   constructor(props){

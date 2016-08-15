@@ -4,13 +4,13 @@ require('styles/App.css');
 import React from 'react';
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
 import geoLib from 'geolib'
-require('styles//From.css');
 import {Notification} from 'react-notification'
 
+require('styles//From.css')
 
 class AppComponent extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       currentAdd:'',
       currentAdd2:'',
@@ -40,24 +40,21 @@ class AppComponent extends React.Component {
         latitude:this.state.lat2,
         longitude:this.state.long2
       }) / 1000;
-
       this.setState({
         address: address,
         lat: lat,
         long: lng,
         dist: distan,
-        currentProc: 'Done'
+        currentProc: 'Waiting for second input'
       })
     })
   }
 
   onChangesT(address) {
-
     this.setState({
       currentAdd2: address,
       currentProc: 'Obtaining coords'
     })
-
     geocodeByAddress(address,  (err, { lat, lng  }) => {
       var distan = geoLib.getDistance({
         latitude:this.state.lat,
@@ -66,7 +63,6 @@ class AppComponent extends React.Component {
         latitude:lat,
         longitude:lng
       }) / 1000;
-
       this.setState({
         address2: address,
         lat2: lat,
@@ -97,10 +93,10 @@ class AppComponent extends React.Component {
             message={this.state.currentProc}
           />
         </div>
-        <h3>Eucledian distance difference {this.state.dist} Km</h3>
+        <h3>Distance difference between {this.state.currentAdd} and {this.state.currentAdd2} is {this.state.dist} Km </h3>
       </div>
       );
     }
   }
 
-  export default AppComponent;
+export default AppComponent;

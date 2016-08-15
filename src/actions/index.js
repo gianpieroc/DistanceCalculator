@@ -1,25 +1,25 @@
-export const REQUEST_PLACE = 'REQUEST_PLACE'
-export const RESPONSE_PLACE = 'RESPONSE_PLACE'
+export const SET_PLACE = 'SET_PLACE'
+export const OBT_COORDS = 'OBT_COORDS'
 export const SET_DISTANCE = 'SET_DISTANCE'
 
 export function requestplace(place){
   return {
-    type: REQUEST_PLACE,
+    type: SET_PLACE,
     place
   }
 }
 
-export function responseplace(place){
+export function obtainCoords(json){
   return {
-    type: RESPONSE_PLACE,
-    place
+    type: OBT_COORDS,
+    coords: json.data.children.map(child => child.data)
   }
 }
 
-export function setDistance(place){
+export function setDistance(distance){
   return {
-    type: REQUEST_PLACE,
-    place
+    type: SET_DISTANCE,
+    distance
   }
 }
 
