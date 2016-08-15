@@ -7,9 +7,6 @@ import { connect } from 'react-redux'
 import Main from '../components/Main'
 
 class Index extends Component {
-  constructor(props){
-    super(props)
-  }
 
   render() {
     const {actions} = this.props;

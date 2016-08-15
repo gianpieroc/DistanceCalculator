@@ -45,7 +45,7 @@ class AppComponent extends React.Component {
         lat: lat,
         long: lng,
         dist: distan,
-        currentProc: 'Waiting for second input'
+        currentProc: 'Done'
       })
     })
   }
