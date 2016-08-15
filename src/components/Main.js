@@ -92,7 +92,7 @@ class AppComponent extends React.Component {
             isActive={this.state.currentProc != 'Any'}
             message={this.state.currentProc}
           />
-        </div>
+      </div>
         <h3>Distance difference between {this.state.currentAdd} and {this.state.currentAdd2} is {this.state.dist} Km </h3>
       </div>
       );
